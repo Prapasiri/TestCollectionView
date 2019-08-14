@@ -28,6 +28,10 @@
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
+                                <activityIndicatorView key="backgroundView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" id="n0K-no-g3P">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="708"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                </activityIndicatorView>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="xEG-1O-9Di">
                                         <rect key="frame" x="0.0" y="0.0" width="184" height="199"/>
@@ -50,6 +54,7 @@
                     <navigationItem key="navigationItem" id="Baf-e0-hEg"/>
                     <connections>
                         <outlet property="collectionView" destination="DFj-Et-WLU" id="58C-iO-6S4"/>
+                        <outlet property="loadingView" destination="n0K-no-g3P" id="PEJ-Om-774"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

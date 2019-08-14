@@ -11,8 +11,11 @@ import UIKit
 class ListViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var loadingView: UIActivityIndicatorView!
 
     var beers: [Beer] = []  // initial item as empty array so it can count element at first is 0
+    var page = 1
+    var isLoading = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,22 +24,41 @@ class ListViewController: UIViewController {
         let bundle = Bundle(for: BeerCollectionViewCell.self)
         let nib = UINib(nibName: "BeerCollectionViewCell", bundle: bundle)
         collectionView.register(nib, forCellWithReuseIdentifier: "BeerCollectionViewCell")
+        // call function that call API with parameter was page
+        getBeerAPI()
         
         // Do any additional setup after loading the view.
-        APIManager().getBeers(urlString: "https://api.punkapi.com/v2/beers") { [weak self] (beers) in
+//        APIManager().getBeers(urlString: "https://api.punkapi.com/v2/beers") { [weak self] (beers) in
+////            DispatchQueue.main.sync {
+////                guard let beers = beers else {
+////                    return
+////                }
+////                print(beers)
+////            }
+//            self?.beers = beers
 //            DispatchQueue.main.sync {
-//                guard let beers = beers else {
-//                    return
-//                }
-//                print(beers)
+//                self?.collectionView.reloadData()
 //            }
-            self?.beers = beers
+//        }
+    }
+    
+    func getBeerAPI(){
+        // show loading
+        isLoading = true
+        loadingView.isHidden = false
+        let apiManager = APIManager()
+        APIManager().getBeers(urlString: "https://api.punkapi.com/v2/beers?page=\(page)") { [weak self] (beers) in
+            
+            self?.beers.append(contentsOf: beers)
+//             sleep(3)
             DispatchQueue.main.sync {
+                self?.isLoading = false
+                self?.loadingView.isHidden = true   // hide loading after loadData
                 self?.collectionView.reloadData()
+                self?.page += 1
             }
         }
     }
-
 //    override func viewWillAppear(_ animated: Bool) {
 //        // before show
 //        super.viewWillAppear(animated)
@@ -71,6 +93,12 @@ extension ListViewController: UICollectionViewDataSource {
         return beers.count
     }
     
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if indexPath.row == beers.count - 1 {
+            getBeerAPI()
+        }
+    }
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BeerCollectionViewCell", for: indexPath) as? BeerCollectionViewCell
             else{
@@ -82,6 +110,16 @@ extension ListViewController: UICollectionViewDataSource {
         return cell
     }
     
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let height = scrollView.frame.size.height
+        let contentYoffset = scrollView.contentOffset.y
+        let distanceFromButtom = scrollView.contentSize.height - contentYoffset
+        if distanceFromButtom < height {
+            if !isLoading{
+                getBeerAPI()
+            }
+        }
+    }
     
 }
 
