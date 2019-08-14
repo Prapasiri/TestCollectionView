@@ -8,12 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		11CE9DC52303B64F00AEA230 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CE9DC42303B64F00AEA230 /* AppDelegate.swift */; };
-		11CE9DC72303B64F00AEA230 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CE9DC62303B64F00AEA230 /* ViewController.swift */; };
+		11CE9DC72303B64F00AEA230 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CE9DC62303B64F00AEA230 /* ListViewController.swift */; };
 		11CE9DCA2303B64F00AEA230 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11CE9DC82303B64F00AEA230 /* Main.storyboard */; };
 		11CE9DCC2303B65000AEA230 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11CE9DCB2303B65000AEA230 /* Assets.xcassets */; };
 		11CE9DCF2303B65000AEA230 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11CE9DCD2303B65000AEA230 /* LaunchScreen.storyboard */; };
 		11CE9DDA2303B65000AEA230 /* TestCollectionViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CE9DD92303B65000AEA230 /* TestCollectionViewTests.swift */; };
 		11CE9DE52303B65000AEA230 /* TestCollectionViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CE9DE42303B65000AEA230 /* TestCollectionViewUITests.swift */; };
+		11CE9DF42303B97100AEA230 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CE9DF32303B97100AEA230 /* APIManager.swift */; };
+		11CE9DF62303BA5900AEA230 /* Beer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CE9DF52303BA5900AEA230 /* Beer.swift */; };
+		11CE9DF92303C39200AEA230 /* BeerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CE9DF72303C39200AEA230 /* BeerCollectionViewCell.swift */; };
+		11CE9DFA2303C39200AEA230 /* BeerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11CE9DF82303C39200AEA230 /* BeerCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +40,7 @@
 /* Begin PBXFileReference section */
 		11CE9DC12303B64F00AEA230 /* TestCollectionView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestCollectionView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11CE9DC42303B64F00AEA230 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		11CE9DC62303B64F00AEA230 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		11CE9DC62303B64F00AEA230 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		11CE9DC92303B64F00AEA230 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		11CE9DCB2303B65000AEA230 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		11CE9DCE2303B65000AEA230 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +51,10 @@
 		11CE9DE02303B65000AEA230 /* TestCollectionViewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestCollectionViewUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		11CE9DE42303B65000AEA230 /* TestCollectionViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCollectionViewUITests.swift; sourceTree = "<group>"; };
 		11CE9DE62303B65000AEA230 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		11CE9DF32303B97100AEA230 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		11CE9DF52303BA5900AEA230 /* Beer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beer.swift; sourceTree = "<group>"; };
+		11CE9DF72303C39200AEA230 /* BeerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerCollectionViewCell.swift; sourceTree = "<group>"; };
+		11CE9DF82303C39200AEA230 /* BeerCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BeerCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,8 +106,12 @@
 			isa = PBXGroup;
 			children = (
 				11CE9DC42303B64F00AEA230 /* AppDelegate.swift */,
-				11CE9DC62303B64F00AEA230 /* ViewController.swift */,
+				11CE9DC62303B64F00AEA230 /* ListViewController.swift */,
 				11CE9DC82303B64F00AEA230 /* Main.storyboard */,
+				11CE9DF32303B97100AEA230 /* APIManager.swift */,
+				11CE9DF72303C39200AEA230 /* BeerCollectionViewCell.swift */,
+				11CE9DF82303C39200AEA230 /* BeerCollectionViewCell.xib */,
+				11CE9DF52303BA5900AEA230 /* Beer.swift */,
 				11CE9DCB2303B65000AEA230 /* Assets.xcassets */,
 				11CE9DCD2303B65000AEA230 /* LaunchScreen.storyboard */,
 				11CE9DD02303B65000AEA230 /* Info.plist */,
@@ -229,6 +241,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11CE9DFA2303C39200AEA230 /* BeerCollectionViewCell.xib in Resources */,
 				11CE9DCF2303B65000AEA230 /* LaunchScreen.storyboard in Resources */,
 				11CE9DCC2303B65000AEA230 /* Assets.xcassets in Resources */,
 				11CE9DCA2303B64F00AEA230 /* Main.storyboard in Resources */,
@@ -256,8 +269,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				11CE9DC72303B64F00AEA230 /* ViewController.swift in Sources */,
+				11CE9DF42303B97100AEA230 /* APIManager.swift in Sources */,
+				11CE9DC72303B64F00AEA230 /* ListViewController.swift in Sources */,
+				11CE9DF92303C39200AEA230 /* BeerCollectionViewCell.swift in Sources */,
 				11CE9DC52303B64F00AEA230 /* AppDelegate.swift in Sources */,
+				11CE9DF62303BA5900AEA230 /* Beer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
